@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Besteraunts</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='Content/css/styles.css'>
+  </head>
+  <body>
+
+    <div class="jumbotron text-center">
+      <h1><a href="/">Curl Up and Dye</a></h1>
+      <p>Stylist and Client Database</p>
+      <form class="container" action="/search_results" method="post">
+
+             <div class="col-md-10 col-md-offset-4">
+              <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Search for Client Name" >
+              </div>
+            </div>
+
+      </form>
+    </div>
+    <div class="container text-center">
+      <h2>Stylists</h2>
+
+      @{
+        if (Model != null)
+        {
+          @foreach (var stylist in Model)
+         {
+          <button class ="btn btn-default">
+         <a href="/stylist/@stylist.GetId()">@stylist.GetName()</a>
+         </button>
+
+        }
+       }
+      }
+
+      <div id="forms">
+        <h2>Add a new stylist:</h2>
+        <form method="post" action="/addStylist">
+          Stylist name:
+          <input type="text" name="stylist-name">
+          <button type="submit">Add</button>
+        </form>
+    </div>
