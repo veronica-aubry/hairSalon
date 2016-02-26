@@ -12,13 +12,20 @@ _Web App and database that allows user to add stylists and assign clients to eac
 
 * Download zip
 * In SQLCMD:
-  ** CREATE DATABASE hair_salon;
-  ** GO
-  ** USE hair_salon;
-  ** GO
-CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255));
-CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), stylist_id VARCHAR(255));
-GO
+
+  CREATE DATABASE hair_salon;
+  
+  GO
+  
+  USE hair_salon;
+  
+  GO
+  
+ CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255));
+ 
+ CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), stylist_id VARCHAR(255));
+
+ GO
 * navigate to directory in command line
 * Run dnu restore and dnx kestrel in unzipped directory
 * navigate to localhost:5004 in browser
