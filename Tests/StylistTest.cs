@@ -101,20 +101,37 @@ namespace HairSalon
       Stylist testStylist2 = new Stylist(name2);
       testStylist2.Save();
 
-      // Client testClient1 = new Client("Alison Vu", testStylist1.GetId());
-      // testClient1.Save();
-      // Client testClient2 = new Client("Alexis Faris", testStylist2.GetId());
-      // testClient2.Save();
+      Client testClient1 = new Client("Alison Vu", testStylist1.GetId());
+      testClient1.Save();
+      Client testClient2 = new Client("Alexis Faris", testStylist2.GetId());
+      testClient2.Save();
 
       testStylist1.Delete();
       List<Stylist> resultStylist = Stylist.GetAll();
       List<Stylist> testStylistList = new List<Stylist> {testStylist2};
 
-      // List<Client> resultClients = Client.GetAll();
-      // List<Client> testClientList = new List<Client> {testClient2};
+      List<Client> resultClients = Client.GetAll();
+      List<Client> testClientList = new List<Client> {testClient2};
 
       Assert.Equal(testStylistList, resultStylist);
-      // Assert.Equal(testClientList, resultClients);
+      Assert.Equal(testClientList, resultClients);
+    }
+
+    [Fact]
+    public void Test_GetClients_RetrievesAllClientsWithStylist()
+    {
+      Stylist testStylist = new Stylist("Veronica Alley");
+      testStylist.Save();
+
+      Client firstClient = new Client("Alison Vu", testStylist.GetId());
+      firstClient.Save();
+      Client secondClient = new Client("Alyssa Cortella", testStylist.GetId());
+      secondClient.Save();
+
+      List<Client> testClientList = new List<Client> {firstClient, secondClient};
+      List<Client> resultClientList = testStylist.GetClients();
+
+      Assert.Equal(testClientList, resultClientList);
     }
 
     public void Dispose()
