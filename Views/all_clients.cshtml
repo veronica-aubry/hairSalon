@@ -6,7 +6,6 @@
     <link rel='stylesheet' href='Content/css/styles.css'>
   </head>
   <body>
-
     <div class="jumbotron text-center">
       <h1><a href="/">Curl Up and Dye</a></h1>
       <p>Stylist and Client Database</p>
@@ -21,28 +20,17 @@
       </form>
     </div>
     <div class="container text-center">
-      <h2>Stylists</h2>
+      <h2>All Clients</h2>
 
       @{
         if (Model != null)
         {
-          @foreach (var stylist in Model)
+          @foreach (var client in Model)
          {
-          <button class ="btn btn-default">
-         <a href="/stylist/@stylist.GetId()">@stylist.GetName()</a>
-         </button>
+          <p>@client.GetName()</p>
 
         }
        }
       }
-
-      <div id="forms">
-        <h2>Add a new stylist:</h2>
-        <form method="post" action="/addStylist">
-          Stylist name:
-          <input type="text" name="stylist-name">
-          <button type="submit">Add</button>
-        </form>
-      <a href="/allClients">View all clients</a>
+      <a href="/">Back</a>
     </div>
-  </div>

@@ -22,7 +22,46 @@
     </div>
     <div class="container text-center">
       <h1>@Model.GetName()</h1>
+
+      <form class="container" action="/stylist/@Model.GetId()/delete" method="post">
+        <a href="/stylist/@Model.GetId()/edit">Edit Stylist</a>
+        <input type="hidden" name="_method" value="DELETE">
+        <button class ="btn btn-danger"  type="submit">Remove Stylist</button>
+      </form>
+
       <h3>@Model.GetName()'s Clients:</h3>
+
+      @{
+        if (@Model.GetClients() != null)
+        {
+          @foreach (var client in @Model.GetClients())
+         {
+           <div class="client">
+             <p>
+             @client.GetName()
+            <form action="/client/@client.GetId()/delete" method="post">
+              <a href="/client/@client.GetId()/edit">Edit</a>
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="btn btn-danger btn-xs"  type="submit">Remove</button>
+            </form>
+           </p>
+         </div>
+         }
+        }
+      }
+
+      <br>
+      <br>
+
+    <div id="forms">
+      <h4>Add a new client</h4>
+      <form method="post" action="/stylist/@Model.GetId()/addClient">
+        Client name:
+        <input type="text" name="client-name">
+        <button type="submit">Add</button>
+      </form>
+    </div>
+
 
     <a href="/">Back</a>
     </div>

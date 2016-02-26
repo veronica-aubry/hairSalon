@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Curl Up and Dye</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='Content/css/styles.css'>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1><a href="/">Curl Up and Dye</a></h1>
+      <p>Stylist and Client Database</p>
+      <form class="container" action="/search_results" method="post">
+         <div class="col-md-10 col-md-offset-4">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="Search for Client Name" >
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="container">
+      <div id="forms">
+        <h2>Edit @Model.GetName()</h2>
+        <form action="/client/@Model.GetId()/edit" method="post">
+        <input type="hidden" name="_method" value="PATCH">
+        <input name="client-id" type="hidden" value="@Model.GetId()">
+        <label for="client-name">Client Name</label>
+        <input id="client-name" name="client-name" type="text">
+        <button type="submit">Submit</button>
+      </form>
+      <h4><a href="/stylist/@Model.GetStylistId()/">Back</a></h4>
+      </div>
+    </div>
+  </body>
+</html>
