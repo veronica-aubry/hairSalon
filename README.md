@@ -1,6 +1,6 @@
 # _Hair Salon_
 
-#### _ Database for Stylists and Clients using C#, Nancy, and Razor 2/26/2016_
+#### Database for Stylists and Clients using C#, Nancy, and Razor 2/26/2016
 
 #### By _**Veronica Alley**_
 
@@ -11,7 +11,7 @@ _Web App and database that allows user to add stylists and assign clients to eac
 ## Setup/Installation Requirements
 
 * Download zip
-*In SQLCMD:
+* In SQLCMD:
 CREATE DATABASE hair_salon;
 GO
 USE hair_salon;
